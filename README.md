@@ -1,4 +1,4 @@
-# LernCloud Terraform MAAS.io Modul
+# LernCloud Terraform Google Cloud (GCloud) Modul
 
 Dieses Repository ist Bestandteil vom [LernCloud](https://github.com/mc-b/lerncloud) Projekt.
 
