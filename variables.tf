@@ -1,6 +1,15 @@
-variable "project" {
-  description = "GCP Project ID"
-  type        = string
+
+variable "machines" {
+  type = map(object({
+    hostname    = string
+    description = optional(string)
+    userdata    = string
+    memory      = optional(number)
+    cores       = optional(number)
+    storage     = optional(number)
+  }))
+  default     = {}
+  description = "Definition der Maschinen"
 }
 
 variable "region" {
@@ -51,37 +60,29 @@ variable "userdata" {
 }
 
 variable "url" {
-  default     = "not used"
+  default = "not used"
 }
 
 variable "key" {
-  default     = "not used"
-  sensitive   = true
+  default   = "not used"
+  sensitive = true
 }
 
 variable "vpn" {
-  default     = "not used"
+  default = "not used"
 }
 
 variable "instance_type" {
   type = map(string)
   default = {
-    1 = "e2-micro"
-    2 = "e2-small"
-    4 = "e2-medium"
-    8 = "e2-standard-2"
+    1  = "e2-micro"
+    2  = "e2-small"
+    4  = "e2-medium"
+    8  = "e2-standard-2"
+    16 = "e2-standard-4"
+    32 = "e2-standard-8"
+    64 = "e2-standard-16"
   }
 }
 
-variable "machines" {
-  type = map(object({
-    hostname    = string
-    description = optional(string)
-    userdata    = string
-    memory      = optional(number)
-    cores       = optional(number)
-    storage     = optional(number)
-  }))
-  default     = {}
-  description = "Definition der Maschinen"
-}
+

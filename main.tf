@@ -17,7 +17,7 @@ data "google_compute_network" "default" {
 
 resource "google_compute_firewall" "allow_all_for_my_ip" {
   name    = "${var.module}-admin-access"
-network = data.google_compute_network.default.name
+  network = data.google_compute_network.default.name
 
 
   allow {
@@ -37,7 +37,7 @@ network = data.google_compute_network.default.name
 
 resource "google_compute_firewall" "public_ports" {
   name    = "${var.module}-public"
-network = data.google_compute_network.default.name
+  network = data.google_compute_network.default.name
 
 
   allow {
@@ -51,8 +51,8 @@ network = data.google_compute_network.default.name
   }
 
   source_ranges = [
-    "0.0.0.0/0",         # Öffnet Ports für das Internet
-    "172.0.0.0/8"        # Interne Netzwerke
+    "0.0.0.0/0",  # Öffnet Ports für das Internet
+    "172.0.0.0/8" # Interne Netzwerke
   ]
 }
 
@@ -76,9 +76,9 @@ resource "google_compute_instance" "vm" {
     access_config {}
   }
 
-    metadata = {
-      user-data = each.value.userdata
-    }
+  metadata = {
+    user-data = each.value.userdata
+  }
 
   tags = [var.module]
 }
