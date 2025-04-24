@@ -1,0 +1,4 @@
+site_name: terraform-lerncloud-gcp
+docs_dir: .
+nav:
+- README: README.md
