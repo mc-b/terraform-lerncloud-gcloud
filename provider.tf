@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "google" {
-  project = var.project
+  project = var.url
   region  = "us-east1"
   zone    = "us-east1-b"
 
