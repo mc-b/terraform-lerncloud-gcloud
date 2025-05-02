@@ -78,6 +78,7 @@ variable "instance_type" {
     1  = "e2-micro"
     2  = "e2-small"
     4  = "e2-medium"
+    6  = "e2-standard-2"    
     8  = "e2-standard-2"
     16 = "e2-standard-4"
     32 = "e2-standard-8"
